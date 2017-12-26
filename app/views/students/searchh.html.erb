@@ -1,0 +1,37 @@
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h2 class="display-9">Student Details</h2> 
+        </div>
+  </div>
+
+
+<!-- 
+      <%form_tag '/search', :method => 'get' do %>
+         <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </p>
+      <% end %>
+ -->
+
+      <%= link_to "PDF", act_path(format: 'pdf') %>
+      
+     <form action="/searchh" method="post">
+        <p>
+          <input id="search" name="search" type="text" />
+          <input name="commit" type="submit" value="search" />
+        </p>
+     </form>
+
+    <div class="panel panel-default">
+      <div class="pre-scrollable">
+        <% @stud.each do |t| %>
+         <ul>
+           <li> Name: <%= t.name %> </li>
+            <li> DOB: <%= t.dob %> </li>
+            <li> Phone: <%= t.phone %> </li>
+           <li> Course: <%= t.course.body %> </li>
+    	   </ul>
+        <% end %>
+      </div>
+    </div>

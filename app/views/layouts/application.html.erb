@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+
+ <nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"></a>
+      
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">  
+        <button class="btn  btn-success navbar-btn btn-sm " type="button" align="right" data-toggle="modal" data-target="#exampleModal">Add student</button>
+          </li>      
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+    <%= yield %>
+    </div>
+  <%= render 'home/new_student' %>
+    
+  </body>
+</html>
