@@ -34,14 +34,18 @@ render json: @courses, status: :ok and return
  end
 
  def searchp
- 	@stud =  Student.searchp(params[:sear])
-@courses = Course.all
+ 	@stud =  Student.searchp(params[:search_string])
+ 	render json: @stud, status: :ok and return
+    @courses = Course.all
+    render json: @courses, status: :ok and return
 end
 
-def searchc
- 	@stud =  Student.searchc(params[:searc])
-@courses = Course.all
-end
+ def searchc
+ 	@stud =  Student.searchc(params[:search_string])
+ 	render json: @stud, status: :ok and return
+    @courses = Course.all
+    render json: @courses, status: :ok and return
+ end
 
 
  private

@@ -28,21 +28,23 @@
   <!--   </form> --></div>
 
      <div class="col-sm-2">
-    <form action="/searchp" method="post">
+    <!-- <form action="/searchp" method="post"> -->
           <p>
           <input id="sear" width="400px" name="sear" type="text" placeholder="Search by phone" />
-          <input name="commit" type="button" value="search by phone" /></p>
-    </form></div>
+          <button onclick="starttAjax()">Search by phone</button></p>
+    <!-- </form> -->
+    </div>
 
        <div class="col-sm-2">
-     <form action="/searchc" method="post">
-     <select  class="col-sm-12" name="searc">
+     <!-- <form action="/searchc" method="post"> -->
+     <select  id="sl" class="col-sm-12" name="searc">
       <% @courses.each do |c| %>
     <option value="<%= c.id %>"> <%= c.body %></option>
     <% end %>
     </select>
-   <input type="submit" value="search by course">
-    </form></div>
+    <button onclick="startttAjax()">Search bycourse</button></p>
+    <!-- </form> -->
+    </div>
 
 </div>
    
@@ -98,6 +100,54 @@ $.ajax({
   type: "GET",
   data: params,
   url: "http://localhost:3000/searchh",
+
+  success: function(data){
+       // console.log(data);
+        localStorage.setItem('myMainKey', JSON.stringify(data));
+       // document.getElementById("name_attribute").innerHTML=data[0].name;
+     // // $('#name_attribute').html("jasmeet");
+       window.location.href = 'http://localhost:3000/aj';
+    },
+  error: function(jqXHR, textStatus, errorThrown){}
+
+
+ });
+
+}
+
+function starttAjax() {
+  var da = document.getElementById("sear").value;
+ // alert(d);
+ var params = {search_string:da};
+ 
+$.ajax({
+  type: "GET",
+  data: params,
+  url: "http://localhost:3000/searchp",
+
+  success: function(data){
+       // console.log(data);
+        localStorage.setItem('myMainKey', JSON.stringify(data));
+       // document.getElementById("name_attribute").innerHTML=data[0].name;
+     // // $('#name_attribute').html("jasmeet");
+       window.location.href = 'http://localhost:3000/aj';
+    },
+  error: function(jqXHR, textStatus, errorThrown){}
+
+
+ });
+
+}
+
+function startttAjax() {
+  var dat = document.getElementById("sl").value;
+ // alert(d);
+ var params = {search_string:dat};
+ 
+$.ajax({
+  type: "GET",
+  data: params,
+  url: "http://localhost:3000/searchc",
 
   success: function(data){
        // console.log(data);

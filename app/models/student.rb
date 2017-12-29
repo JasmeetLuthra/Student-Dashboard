@@ -10,19 +10,19 @@ class Student < ApplicationRecord
    		 end
 	end
 
-	def self.searchp(sear)
+	def self.searchp(search_string)
 
-		 if sear
-   			 where('phone LIKE ?' , "%#{sear}%" )
+		 if search_string
+   			 where('phone LIKE ?' , "%#{search_string}%" )
  		 else
     		 all
    		 end
 	end
 
-	def self.searchc(searc)
+	def self.searchc(search_string)
 
-		 if searc
-   			 where('course_id LIKE ?' , "%#{searc}%" )
+		 if search_string
+   			 where('course_id LIKE ?' , "%#{search_string}%" )
  		 else
     		 all
    		 end

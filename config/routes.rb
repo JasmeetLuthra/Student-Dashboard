@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 get '/act' => 'home#act'
 get '/search' => 'home#search'
 get '/searchh' => 'students#searchh'
-post '/searchc' => 'students#searchc'
-post '/searchp' => 'students#searchp'
+get '/searchc' => 'students#searchc'
+get '/searchp' => 'students#searchp'
 get '/aj' => 'home#aj'
 
 
