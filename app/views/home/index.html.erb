@@ -4,6 +4,8 @@
         </div>
   </div>
 
+  <div id ="name_attribute"></div>
+
 
 <!-- 
       <%form_tag '/search', :method => 'get' do %>
@@ -15,29 +17,50 @@
  -->
 
       <%= link_to "PDF", act_path(format: 'pdf') %><br> <br>
-      
-     <form action="/searchh" method="post">
-        <p>
-          <input id="search" name="search" type="text" />
-          <input name="commit" type="submit" value="search" />
-        </p>
-     </form>
+    
+    <div class="container">
+
+    <div class="col-sm-2">
+     <!-- <form  > -->
+          <p>
+          <input id="search"  type="text" placeholder="Search by Name" />
+          <button onclick="startAjax()">Search by name</button></p>
+  <!--   </form> --></div>
+
+     <div class="col-sm-2">
+    <form action="/searchp" method="post">
+          <p>
+          <input id="sear" width="400px" name="sear" type="text" placeholder="Search by phone" />
+          <input name="commit" type="button" value="search by phone" /></p>
+    </form></div>
+
+       <div class="col-sm-2">
+     <form action="/searchc" method="post">
+     <select  class="col-sm-12" name="searc">
+      <% @courses.each do |c| %>
+    <option value="<%= c.id %>"> <%= c.body %></option>
+    <% end %>
+    </select>
+   <input type="submit" value="search by course">
+    </form></div>
+
+</div>
+   
 
     <div class="panel panel-default">
       <div class="pre-scrollable">
         <% @students.each do |t| %>
         <div class="panel panel-default">
-         <ul>
+         <ul id="studentss">
             <%= image_tag t.image_url(:thumb).to_s %> 
            <li> Name: <%= t.name %> </li>
             <li> DOB: <%= t.dob %> </li>
             <li> Phone: <%= t.phone %> </li>
            <li> Course: <%= t.course.body %> </li>
           <%  if t.youtube_id != nil %>
-         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#exampleModall">Watch video</button>
-         <% end %>
+         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#exampleModall-<%= t.youtube_id %>">Watch video</button>
 
-    <div class="modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModall-<%= t.youtube_id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
@@ -48,15 +71,47 @@
       </div>
 
       <iframe id="ytplayer" type="text/html" width="600" height="300"
-  src="https://www.youtube.com/embed/<%= t.youtube_id %>?autoplay=1&origin=http://example.com"
+  src="https://www.youtube.com/embed/<%= t.youtube_id %>?autoplay=0"
   frameborder="0"></iframe>
   
       </div>
       </div>
       </div>
+         <% end %>
+
 
         </ul>
       </div>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+
+
+  function startAjax() {
+  var d = document.getElementById("search").value;
+ // alert(d);
+ var params = {search_string:d};
+ 
+$.ajax({
+  type: "GET",
+  data: params,
+  url: "http://localhost:3000/searchh",
+
+  success: function(data){
+       // console.log(data);
+        localStorage.setItem('myMainKey', JSON.stringify(data));
+       // document.getElementById("name_attribute").innerHTML=data[0].name;
+     // // $('#name_attribute').html("jasmeet");
+       window.location.href = 'http://localhost:3000/aj';
+    },
+  error: function(jqXHR, textStatus, errorThrown){}
+
+
+ });
+
+}
+   
+
+</script>

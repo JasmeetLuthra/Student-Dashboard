@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
 get '/act' => 'home#act'
 get '/search' => 'home#search'
-post '/searchh' => 'students#searchh'
+get '/searchh' => 'students#searchh'
+post '/searchc' => 'students#searchc'
+post '/searchp' => 'students#searchp'
+get '/aj' => 'home#aj'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

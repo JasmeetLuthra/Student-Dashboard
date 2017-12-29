@@ -11,13 +11,14 @@
         </button>
       </div>
 
-   <%= form_for :student, url: '/students' , html: { class: 'form-horizontal', :multipart => true} do %>
+
+   <%= form_for :student, url: '/students' ,  html: { class: 'form-horizontal', :multipart => true} do %>
       <div class="modal-body">
          
   <div class="form-group" accept-charset="character_set">
     <label class="control-label col-sm-2" for="name">NAME</label>
     <div class="col-sm-10">
-   <input type="text" pattern="[A-Za-z]+" class="form-control"  name="student[name]" id="name" placeholder="Enter name" required>
+   <input type="text" pattern="[A-Za-z]+" class="form-control"  name="student[name]" id="name" data-remote = "true" placeholder="Enter name" required>
     </div>
   </div>
 
@@ -65,9 +66,10 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary"  id="newstudent">Submit</button>
       </div>
       <% end %>
+      
     </div>
   </div>
 </div>

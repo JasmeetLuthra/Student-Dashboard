@@ -1,0 +1,40 @@
+ <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h2 class="display-9">Student Details</h2> 
+        </div>
+  </div>
+
+  <div id="jas">
+  
+     </div>
+
+<script type="text/javascript">
+var data = JSON.parse(localStorage.getItem('myMainKey'));
+// var dat = JSON.parse(data);
+
+for(i =0; i<data.length ; i++){
+  
+   $('#jas').append($('<div/>', { id: 'd' + i, }))
+   $('#jas').append($('<div/>', { id: 'r' + i, }))
+   $('#jas').append($('<div/>', { id: 'a' + i, }))
+   $('#jas').append($('<div/>', { id: 'b' + i, }))
+   $('#jas').append($('<iframe/>', { id: 'c' + i, }))
+    
+   $('#jas').append($('<div/>', { id: 'e' + i, }))
+
+   
+
+   
+   document.getElementById( 'd' + i).innerHTML= "<img src='"+data[i].image.thumb.url+"' />";
+   document.getElementById( 'r' + i).innerHTML=data[i].name;
+   document.getElementById( 'a' + i).innerHTML=data[i].dob;
+   document.getElementById( 'b' + i).innerHTML=data[i].phone;  
+   var yl = "https://www.youtube.com/embed/"+ data[i].youtube_id   + "?autoplay=0";
+   document.getElementById( 'c' + i).setAttribute("src", yl);
+   document.getElementById( 'c' + i).setAttribute("frameborder", "0");
+  
+
+  document.getElementById( 'e' + i).innerHTML="_____________________________________________________________________________________________________________________________<br />";
+
+}
+</script>

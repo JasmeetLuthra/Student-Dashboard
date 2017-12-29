@@ -4,8 +4,13 @@ class HomeController < ApplicationController
  def index
   	@students = Student.order(created_at: :desc).all
     @courses = Course.all
+    
   end
  
+  def aj
+ 	@courses = Course.all
+ 	end
+
  def act
  	@students = Student.order(created_at: :desc).all
  	respond_to do |format|

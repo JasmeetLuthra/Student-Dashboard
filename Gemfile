@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'prawn'
 
+ gem 'responders'
+
+gem 'jquery-rails'
+
 gem 'prawn-table'
 
 gem 'rmagick'

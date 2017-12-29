@@ -12,10 +12,10 @@ class StudentPdf < Prawn::Document
 def user_id_all
  [["id","Name", "Dob", "Phone", "Course" ]] +
    @students.map do |stu|
-   	if stu.container_id == nil
+   	if stu.course_id == nil
    		[stu.id, stu.name, stu.dob, stu.phone]
    	else
-   		name = Course.find(stu.container_id)
+   		name = Course.find(stu.course_id)
  	[stu.id, stu.name, stu.dob, stu.phone, name.body]
      end
   end

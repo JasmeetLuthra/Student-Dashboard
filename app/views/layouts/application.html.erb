@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ">  
-        <button class="btn  btn-success navbar-btn btn-sm " type="button" align="right" data-toggle="modal" data-target="#exampleModal">Add student</button>
+        <button class="btn  btn-success navbar-btn btn-sm " type="button" align="right" data-toggle="modal" data-target="#exampleModal"   >Add student</button>
           </li>      
         </ul>
       </div>
@@ -32,7 +32,8 @@
     <div class="container">
     <%= yield %>
     </div>
-  <%= render 'home/new_student' %>
+ 
+  <%= (render 'home/new_student') %>
     
   </body>
 </html>
