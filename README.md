@@ -1,1 +1,1 @@
-# Myapp
+# Basic Student DashBoard in Rails
