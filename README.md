@@ -1,1 +1,1 @@
-# Basic Student DashBoard in Rails
+# Student Basic DashBoard in Rails
